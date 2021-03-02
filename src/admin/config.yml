@@ -3,3 +3,65 @@ backend:
   branch: master # Branch to update
 media_folder: "_site/assets/uploads"
 public_folder: "/images/uploads"
+collections:
+  - name: "posts" #The name of the collection and should match our posts.json file's tag
+    label: "Posts" #The name of the collection on the CMS itself
+    folder: "posts" #The folder that our blog posts will be loaded from and saved to
+    create: true #Tells the CMS that new posts can be created
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" #this sets the URL for the post
+    fields:
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "blogPostIndex.njk",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Post Body", name: "article", widget: "markdown" }
+      - { label: "Written By", name: "writer", widget: "string" }
+      - { label: "Written On", name: "writenOn", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+  # For Employee Speaks
+  - name: "employeeSpeaks" #The name of the collection and should match our posts.json file's tag
+    label: "Employee Speaks" #The name of the collection on the CMS itself
+    folder: "employeeSpeaks" #The folder that our blog posts will be loaded from and saved to
+    create: true #Tells the CMS that new posts can be created
+    slug: "{{slug}}" #this sets the URL for the post
+    fields:
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "employeeSpeaks.njk",
+        }
+      - { label: "Employee Name", name: "name", widget: "string" }
+      - { label: "Employee Designation", name: "designation", widget: "string" }
+      - { label: "Post Body", name: "article", widget: "markdown" }
+      - { label: "Image Name", name: "imageName", widget: "image" }
+  #For Openings
+  - name: "openings" #The name of the collection and should match our posts.json file's tag
+    label: "Openings" #The name of the collection on the CMS itself
+    folder: "openings" #The folder that our blog posts will be loaded from and saved to
+    create: true #Tells the CMS that new posts can be created
+    slug: "{{slug}}" #this sets the URL for the post
+    fields:
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "careers.njk",
+        }
+      - { label: "Role Name", name: "role", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - {
+          label: "Role Description",
+          name: "roledescripition",
+          widget: "markdown",
+        }
+      - { label: "Qualification", name: "qualification", widget: "image" }
+      - {
+          label: "Additional Requirements",
+          name: "additionalrequirements",
+          widget: "markdown",
+        }
