@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("src/admin/config.yml");
   return {
     passthroughFileCopy: true,
     mardownTemplateEngine: "njk",
