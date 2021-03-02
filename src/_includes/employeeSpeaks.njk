@@ -1,0 +1,25 @@
+{# Generates employee speeches #}
+{%for speech in employeeSpeaksList%}
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="single-team-member">
+                <div class="team-member-bg {{speech.data.imageName}}">
+                    <div class="team-content">
+                        <div class="team-title">
+                            <a href="">{{speech.data.name}}</a>
+                        </div>
+                        <div class="team-subtitle">
+                            <p>{{speech.data.designation}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-6">
+            <div class="single-director">
+                <p class="text-justify">{{speech.data.article}}</p>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    {%endfor%}

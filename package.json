@@ -1,0 +1,17 @@
+{
+  "name": "11tyWrap2",
+  "version": "1.0.0",
+  "description": "SELf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "axios": ">=0.21.1",
+    "socket.io": ">=2.4.0"
+  }
+}

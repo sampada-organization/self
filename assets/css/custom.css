@@ -1,0 +1,171 @@
+.section-title h5 b {
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Quicksand";
+  font-weight: 450;
+  text-shadow: 0.7px 0.7px 2px var(--red);
+}
+
+.section-title h1,
+.section-title h1 b {
+  font-weight: 500;
+  text-shadow: 1px 1px 5px var(--red);
+}
+
+.bijli-icon a b {
+  border-radius: 6rem;
+  padding: 0.4rem 0.9rem;
+  padding-bottom: 0.6rem;
+  background-color: var(--red);
+  color: #fff;
+  font-family: "Quicksand";
+  font-weight: 500;
+}
+
+.bijli-icon a b:hover {
+  opacity: 0.8;
+}
+
+#flowchart {
+  height: 1200vh;
+}
+
+table tr td {
+  font-weight: 400;
+  font-size: 0.9rem !important;
+}
+
+.reveal-modal {
+  background: #e1e1e1;
+  visibility: hidden;
+  display: none;
+  top: 100px;
+  left: 50%;
+  width: 820px;
+  position: absolute;
+  z-index: 41;
+  padding: 30px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.center {
+  margin: 5em auto;
+  width: 70%;
+}
+
+select {
+  display: inline;
+  width: auto;
+}
+
+.form {
+  margin: auto 25%;
+}
+
+.white {
+  color: #fff !important;
+  text-shadow: 1.3px 1.3px 0 black;
+}
+
+.less-width {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.some-padding {
+  padding-right: 12px;
+}
+
+.page-heading {
+  margin: 30px auto;
+  width: 50%;
+  font-family: "Quicksand";
+}
+
+.card-text li {
+  color: #fff;
+}
+
+.card-link {
+  background-color: var(--green);
+  color: #fff;
+  padding: 0.8rem;
+  font-family: "Quicksand";
+  border-radius: 0.5rem;
+}
+
+.card-link:hover {
+  color: #fff;
+  opacity: 0.4;
+}
+
+.card-body {
+  box-shadow: 5px 5px var(--red);
+}
+
+.card {
+  margin: 2rem;
+}
+
+.breadcroumb-title > h6 > a {
+  color: #fff;
+}
+
+.some-margin {
+  margin-right: 22px;
+  margin-left: 5px;
+}
+
+.self-engine {
+  margin-top: 10%;
+  font-size: 1rem;
+}
+
+.self-engine img {
+  width: 110%;
+}
+
+.service-area,
+.testimonial-section {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+.self-engine .las {
+  color: var(--red);
+}
+
+.card-body p {
+  margin-bottom: 0px !important;
+}
+
+.single-feature-item p {
+  font-size: 25px;
+}
+
+.single-director p {
+  padding-right: 3px !important;
+  margin-right: 3px !important;
+}
+
+.header-right-content {
+  padding: 10px;
+}
+
+.top-margin {
+  margin-top: 14em;
+}
+
+.bottom-margin {
+  margin-bottom: 5rem;
+}
+
+.associate_logo {
+  height: 120px;
+  width: auto;
+}
+
+.associate_logo:hover {
+  opacity: 0.9;
+}

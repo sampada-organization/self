@@ -1,0 +1,29 @@
+{%for opening in openingsList%}
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">{{opening.data.role}}</h3>
+            <h5 class="card-subtitle space">{{opening.data.location}}</h5>
+            <p class="card-text">
+                <h6 class="card-subtitle">Role :</h6>
+                <p>
+                    <pre>{{opening.data.roledescription}}</pre>
+                </p>
+            </p>
+            <p class="card-text">
+                <h6 class="card-subtitle">
+                    Qualification :</h6>
+                <p>
+                    <pre>{{opening.data.qualification}}</pre>
+                </p>
+            </p>
+            <p>
+                <h6 class="card-subtitle">Additional Requirement :
+                </h6>
+                <p>
+                    <pre>{{opening.data.additionalrequirements}}</pre>
+                </p>
+            </p>
+            <a href="#footer-link" class="card-link">Apply</a>
+        </div>
+    </div>
+    {%endfor%}

@@ -1,0 +1,46 @@
+---
+layout: base.njk
+---
+
+<form class="center">
+  <div class="form">
+    <label for="Choose Year"> <b>Select Report Year</b> </label>
+    <select id="getReport" name="Choose Year" onchange="return returnReport()">
+      <option value="2013-14.pdf">Choose Option</option>
+      <option value="2013-14.pdf">2013 - 14</option>
+      <option value="2014-15.pdf">2014 - 15</option>
+      <option value="2015-16.pdf">2015 - 16</option>
+      <option value="2016-17.pdf">2016 - 17</option>
+      <option value="2017-18.pdf">2017 - 18</option>
+    </select>
+  </div>
+</form>
+
+<script>
+  function returnReport() {
+    var reportYears = document.getElementById("getReport");
+    var selectedYear = reportYears.options[reportYears.selectedIndex].value;
+    var filePathPrefix = "https://dnyand33p.github.io/assets/files/";
+    filePath = filePathPrefix + selectedYear;
+    let url =
+      "https://drive.google.com/viewerng/viewer?embedded=true&url=" + filePath;
+
+    window.open(url);
+  }
+</script>
+
+<style>
+  label {
+    font-size: 1.5em;
+    margin-right: 1.8em;
+  }
+
+  select {
+    border: 0.05rem solid var(--red);
+    border-radius: 0px 2px;
+  }
+
+  #getReport * {
+    font-size: 1.1em;
+  }
+</style>

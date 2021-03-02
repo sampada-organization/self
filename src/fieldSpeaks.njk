@@ -1,0 +1,30 @@
+---
+layout: "base.njk"
+---
+
+<div class="breadcroumb-area fieldSpeaksBG">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcroumb-title text-center">
+          <h1 class="white">Field Speaks</h1>
+          <h6 class="white">
+            <a href="/">Home</a>
+            / Field Speaks
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog Index -->
+
+<div class="blog-area mar-top-50 section-padding">
+  <div class="container">
+    <div class="row">
+      {% set postslist = collections.posts %}
+      {% include "blogPostIndex.njk" %}
+    </div>
+  </div>
+</div>
