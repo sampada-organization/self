@@ -1,12 +1,16 @@
 backend:
  name: git-gateway
  branch: master # Branch to update
+
+site_url: https://selforg.netlify.com
+
 media_folder: "_site/assets/uploads"
 public_folder: "/assets/uploads"
+
 collections:
 - name: "posts" #The name of the collection and should match our posts.json file's tag
   label: "Posts" #The name of the collection on the CMS itself
-  folder: "posts" #The folder that our blog posts will be loaded from and saved to
+  folder: "blog" #The folder that our blog posts will be loaded from and saved to
   create: true #Tells the CMS that new posts can be created
   slug: "{{slug}}" #this sets the URL for the post
   fields:
@@ -59,7 +63,7 @@ collections:
       name: "roledescription",
       widget: "markdown",
     }
-  - { label: "Qualification", name: "qualification", widget: "image" }
+  - { label: "Qualification", name: "qualification", widget: "markdown" }
   - {
       label: "Additional Requirements",
       name: "additionalrequirements",
