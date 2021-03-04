@@ -27,9 +27,9 @@ collections:
    folder: "/src/employeeSpeaks" #The folder that our blog posts will be loaded from and saved to
    create: true #Tells the CMS that new posts can be created
    slug: "{{slug}}" #this sets the URL for the post
-   identifier_field: "name"
+   identifier_field: "employeeSpeaks.data.name"
    fields:
-     - { label: "Employee Name", name: "name", widget: "string" }
+     - { label: "Employee Name", name: "employeeSpeaks.data.name", widget: "string" }
      - { label: "Employee Designation", name: "designation", widget: "string" }
      - { label: "Post Body", name: "article", widget: "markdown" }
      - { label: "Image Name", name: "imageName", widget: "string" }
