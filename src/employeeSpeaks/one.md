@@ -6,8 +6,5 @@ article: "I am part of Sampada Entrepreneurship & Livelihood Foundation since 20
 Frequent trainings, exposure visits are a part of SELF culture to develop its human resources. My wish to work in a field that can have a social impact along with my personal growth have been fulfilled by SELF. 
 As shout out to Management team and HR of SELF in putting efforts to make it a safe and healthy environment, where everybody is treated with utmost respect and equality. 
 There are so many wonderful things about working for SELF. Having support of each staff member in thick and thin of life made it feel like an extended family. 
-'Coming together is a beginning. Keeping together is progress. Working together is success.'
-"
-
-
+'Coming together is a beginning. Keeping together is progress. Working together is success.'"
 ---

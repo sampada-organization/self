@@ -29,7 +29,7 @@ collections:
  # For Employee Speaks
 -  name: "employeeSpeaks" #The name of the collection and should match our posts.json file's tag
    label: "Employee Speaks" #The name of the collection on the CMS itself
-   folder: "src/employeeSpeaks" #The folder that our blog posts will be loaded from and saved to
+   folder: "/src/employeeSpeaks" #The folder that our blog posts will be loaded from and saved to
    create: true #Tells the CMS that new posts can be created
    slug: "{{slug}}" #this sets the URL for the post
    fields:
@@ -37,7 +37,7 @@ collections:
          label: "Layout",
          name: "layout",
          widget: "hidden",
-         default: "employeeSpeaks.njk",
+         default: "/src/_includes/employeeSpeaks.njk",
        }
      - { label: "Employee Name", name: "name", widget: "string" }
      - { label: "Employee Designation", name: "designation", widget: "string" }
