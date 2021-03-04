@@ -14,12 +14,6 @@ collections:
   create: true #Tells the CMS that new posts can be created
   slug: "{{slug}}" #this sets the URL for the post
   fields:
-  - {
-      label: "Layout",
-      name: "layout",
-      widget: "hidden",
-      default: "blogPostIndex.njk",
-    }
   - { label: "Title", name: "title", widget: "string" }
   - { label: "Description", name: "description", widget: "string" }
   - { label: "Post Body", name: "article", widget: "markdown" }
@@ -33,16 +27,10 @@ collections:
    create: true #Tells the CMS that new posts can be created
    slug: "{{slug}}" #this sets the URL for the post
    fields:
-     - {
-         label: "Layout",
-         name: "layout",
-         widget: "hidden",
-         default: "/src/_includes/employeeSpeaks.njk",
-       }
      - { label: "Employee Name", name: "name", widget: "string" }
      - { label: "Employee Designation", name: "designation", widget: "string" }
      - { label: "Post Body", name: "article", widget: "markdown" }
-     - { label: "Image Name", name: "imageName", widget: "image" }
+     - { label: "Image Name", name: "imageName", widget: "string" }
  #For Openings
 - name: "openings" #The name of the collection and should match our posts.json file's tag
   label: "Openings" #The name of the collection on the CMS itself
@@ -50,12 +38,6 @@ collections:
   create: true #Tells the CMS that new posts can be created
   slug: "{{slug}}" #this sets the URL for the post
   fields:
-  - {
-     label: "Layout",
-     name: "layout",
-     widget: "hidden",
-     default: "careers.njk",
-    }
   - { label: "Role Name", name: "role", widget: "string" }
   - { label: "Location", name: "location", widget: "string" }
   - {
