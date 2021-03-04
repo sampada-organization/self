@@ -13,6 +13,7 @@ collections:
   folder: "/src/blog" #The folder that our blog posts will be loaded from and saved to
   create: true #Tells the CMS that new posts can be created
   slug: "{{slug}}" #this sets the URL for the post
+  identifier_field: "title"
   fields:
   - { label: "Title", name: "title", widget: "string" }
   - { label: "Description", name: "description", widget: "string" }
@@ -26,6 +27,7 @@ collections:
    folder: "/src/employeeSpeaks" #The folder that our blog posts will be loaded from and saved to
    create: true #Tells the CMS that new posts can be created
    slug: "{{slug}}" #this sets the URL for the post
+   identifier_field: "name"
    fields:
      - { label: "Employee Name", name: "name", widget: "string" }
      - { label: "Employee Designation", name: "designation", widget: "string" }
@@ -37,6 +39,7 @@ collections:
   folder: "/src/openings" #The folder that our blog posts will be loaded from and saved to
   create: true #Tells the CMS that new posts can be created
   slug: "{{slug}}" #this sets the URL for the post
+  identifier_field: "role"
   fields:
   - { label: "Role Name", name: "role", widget: "string" }
   - { label: "Location", name: "location", widget: "string" }
