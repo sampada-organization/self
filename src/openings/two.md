@@ -1,5 +1,5 @@
 ---
-role: "MIS Executive"
+title: "MIS Executive"
 location: "Ahmednagar"
 roledescription: "
 Assist to audit manager."

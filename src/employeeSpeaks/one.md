@@ -1,6 +1,6 @@
 ---
 imageName: varsha
-name: "Mrs. Varsha Chavan"
+title: "Mrs. Varsha Chavan"
 designation: "Manager Operations"
 article: "I am part of Sampada Entrepreneurship & Livelihood Foundation since 2013. Today I am in risen to the Position of Manager operations with Insurance as my prime responsibilities. I started as a MIS- supervisor. The management team of SELF supported me to enhance skills & knowledge to gain heights in my career. 
 Frequent trainings, exposure visits are a part of SELF culture to develop its human resources. My wish to work in a field that can have a social impact along with my personal growth have been fulfilled by SELF. 
