@@ -1,11 +1,11 @@
 backend:
   name: proxy
-  proxy_url: http://localhost:10394
+  proxy_url: http://localhost:8081
   # name: git-gateway
   # branch: master # Branch to update
 
 site_url: https://selforg.netlify.com
-
+local_backend: true
 media_folder: "_site/assets/uploads"
 public_folder: "/assets/uploads"
 
