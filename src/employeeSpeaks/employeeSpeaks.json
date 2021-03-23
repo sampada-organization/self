@@ -1,3 +1,4 @@
 {
-    "tags": "employeeSpeaks"
+    "tags": "employeeSpeaks",
+    "layout": "base.njk"
 }
