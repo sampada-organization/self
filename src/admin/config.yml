@@ -35,7 +35,7 @@ collections:
       - { label: "Image Name", name: "imageName", widget: "string" }
     #For Openings
   - name: "openings" #The name of the collection and should match our posts.json file's tag
-    label: "Openings" #The name of the collection on the CMS itself
+    label: "Career Openings" #The name of the collection on the CMS itself
     folder: "/src/openings" #The folder that our blog posts will be loaded from and saved to
     create: true #Tells the CMS that new posts can be created
     slug: "{{slug}}" #this sets the URL for the post
@@ -54,3 +54,18 @@ collections:
           name: "additionalrequirements",
           widget: "markdown",
         }
+
+  - name: "stats"
+    label: "Statistics Bar"
+    files:
+      - label: "Statistics"
+        name: "stats"
+        file: "_data/stats.json"
+        fields:
+          - { label: "Loan Portfolio", name: "loan", widget: "string"}
+          - { label: "Credit Disbursed", name: "credit", widget: "string"}
+          - { label: "Households Served", name: "household", widget: "string"}
+          - { label: "Lives Insured", name: "insured", widget: "string"}
+          - { label: "Loan Portfolio", name: "enterprises", widget: "string"}
+          - { label: "Loan Portfolio", name: "claims", widget: "string"}
+

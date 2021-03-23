@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
       input: "src",
       include: "includes",
       output: "_site",
+      data: "../_data",
     },
   };
 };
