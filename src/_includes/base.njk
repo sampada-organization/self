@@ -8,45 +8,32 @@
       Sampada Entrepreneurship & Livelihoods Foundation
     </title>
     <!--Favicon-->
-    <link
-    rel="icon" href="/assets/img/favicon.png" type="image/jpg"/>
+    <link rel="icon" href="/assets/img/favicon.png" type="image/jpg"/>
     <!-- Bootstrap CSS -->
-    <link
-    href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Font Awesome CSS-->
-    <link
-    href="/assets/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- Line Awesome CSS -->
-    <link
-    href="/assets/css/line-awesome.min.css" rel="stylesheet"/>
+    <link href="/assets/css/line-awesome.min.css" rel="stylesheet"/>
     <!-- Animate CSS-->
-    <link
-    href="/assets/css/animate.css" rel="stylesheet"/>
+    <link href="/assets/css/animate.css" rel="stylesheet"/>
     <!-- Bar Filler CSS -->
-    <link
-    href="/assets/css/barfiller.css" rel="stylesheet"/>
+    <link href="/assets/css/barfiller.css" rel="stylesheet"/>
     <!-- Magnific Popup Video -->
-    <link
-    href="/assets/css/magnific-popup.css" rel="stylesheet"/>
+    <link href="/assets/css/magnific-popup.css" rel="stylesheet"/>
     <!-- Flaticon CSS -->
-    <link
-    href="/assets/css/flaticon.css" rel="stylesheet"/>
+    <link href="/assets/css/flaticon.css" rel="stylesheet"/>
     <!-- Owl Carousel CSS -->
-    <link
-    href="/assets/css/owl.carousel.css" rel="stylesheet"/>
+    <link href="/assets/css/owl.carousel.css" rel="stylesheet"/>
     <!-- Style CSS -->
-    <link
-    href="/assets/css/style.css" rel="stylesheet"/>
+    <link href="/assets/css/style.css" rel="stylesheet"/>
     <!-- Responsive CSS -->
-    <link
-    href="/assets/css/responsive.css" rel="stylesheet"/>
+    <link href="/assets/css/responsive.css" rel="stylesheet"/>
     <!-- Customized -->
-    <link
-    rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- jquery -->
     <script src="/assets/js/jquery-1.12.4.min.js"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -148,19 +135,19 @@
                           </li>
                         </ul>
                       </li>
-                      {# <li class="nav-item">
-                      																																																<a class="nav-link" href="index.html">Resources
-                      																																																</a>
-                      																																																<ul class="sub-menu">
-                      																																																				<li>
-                      																																																								<a href="/assets/files/codeOfConduct.pdf" target="_blank">SELF-COC</a>
-                      																																																				</li>
-                      																																																				<li>
-                      																																																								<a href="/reports" target="_blank">SELF-Annual Report</a>
-                      																																																				</li>
-                      
-                      																																																</ul>
-                      																																												</li> #}
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html">Resources
+                        </a>
+                        <ul class="sub-menu">
+                          <li>
+                            <a href="/assets/files/codeOfConduct.pdf" target="_blank">SELF-COC</a>
+                          </li>
+                          {# <li>
+                            <a href="/reports" target="_blank">SELF-Annual Report</a>
+                          </li> #}
+
+                        </ul>
+                      </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#footer-link">Contact</a>
                       </li>
@@ -272,13 +259,17 @@
     <script src="/assets/js/main.js"></script>
     <script>
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
+        window
+          .netlifyIdentity
+          .on("init", user => {
+            if (!user) {
+              window
+                .netlifyIdentity
+                .on("login", () => {
+                  document.location.href = "/admin/";
+                });
+            }
+          });
       }
     </script>
   </body>
