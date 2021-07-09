@@ -468,6 +468,9 @@ textarea:focus::-webkit-input-placeholder {
 .slide-item-bg-2 {
   background-image: url(../img/slide-area-bg-2.png);
 }
+.slide-item-bg-3 {
+  background-image: url(../img/slide-area-bg-3.jpg);
+}
 
 .hero-area.theme-3 {
   background-image: url(../img/hero-area-bg-3.jpg);
