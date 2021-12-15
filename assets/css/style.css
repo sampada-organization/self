@@ -518,7 +518,9 @@ textarea:focus::-webkit-input-placeholder {
 .omshri {
   background-image: url(../img/team/omshri.png);
 }
-
+.goyal{
+  background-image: url(../img/team/goyal.jfif);
+}
 .minakshi {
   background-image: url(../img/team/minakshi.png);
 }
