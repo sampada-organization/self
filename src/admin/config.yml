@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update
+  branch: development # Branch to update
 
 site_url: https://selforg.netlify.com
 local_backend: true
