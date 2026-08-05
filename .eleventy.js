@@ -12,13 +12,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("inrScale", function (value) {
     const raw = Number(String(value).replace(/,/g, ""));
     if (!Number.isFinite(raw)) {
-      return { display: String(value ?? ""), unit: "", exact: String(value ?? ""), raw: 0 };
+      return { display: String(value == null ? "" : value), unit: "", exact: String(value == null ? "" : value), raw: 0 };
     }
     const exact = raw.toLocaleString("en-IN");
-    const trim = (n) => {
-      const s = n.toFixed(2);
+    function trim(n) {
+      var s = n.toFixed(2);
       return s.replace(/\.00$/, "").replace(/(\.\d)0$/, "$1");
-    };
+    }
     if (Math.abs(raw) >= 1e7) {
       return { display: trim(raw / 1e7), unit: "Cr", exact, raw };
     }
@@ -31,32 +31,32 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("managementTeam", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/management-team/*.md")
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+      .sort(function (a, b) { return (a.data.order || 0) - (b.data.order || 0); });
   });
 
   eleventyConfig.addCollection("directors", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/directors-list/*.md")
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+      .sort(function (a, b) { return (a.data.order || 0) - (b.data.order || 0); });
   });
 
   eleventyConfig.addCollection("resources", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/resources-list/*.md")
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+      .sort(function (a, b) { return (a.data.order || 0) - (b.data.order || 0); });
   });
 
   eleventyConfig.addCollection("testimonials", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/testimonials-list/*.md")
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+      .sort(function (a, b) { return (a.data.order || 0) - (b.data.order || 0); });
   });
 
   eleventyConfig.addCollection("testimonialsHome", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/testimonials-list/*.md")
-      .filter((item) => item.data.showOnHome)
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+      .filter(function (item) { return item.data.showOnHome; })
+      .sort(function (a, b) { return (a.data.order || 0) - (b.data.order || 0); });
   });
 
   return {
