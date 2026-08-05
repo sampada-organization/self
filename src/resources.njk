@@ -1,0 +1,63 @@
+---
+layout: base.njk
+permalink: /resources/
+---
+{% set pageTitle = "Resources" %}
+{% set crumbLabel = "Resources" %}
+{% include "page-header.njk" %}
+
+<div class="resources-page section-padding">
+  <div class="container">
+    <p class="resources-page__intro">
+      Download SELF policies, code of conduct, and annual reports. Content is managed from the CMS.
+    </p>
+
+    {# Code of Conduct #}
+    <section class="resources-section" aria-labelledby="res-coc">
+      <h2 id="res-coc" class="resources-section__title">Code of Conduct</h2>
+      <div class="row">
+        {% for item in collections.resources %}
+          {% if item.data.category == "coc" %}
+          {% include "resource-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    {# Annual Reports #}
+    <section class="resources-section" aria-labelledby="res-annual">
+      <h2 id="res-annual" class="resources-section__title">Annual Reports</h2>
+      <div class="row">
+        {% for item in collections.resources %}
+          {% if item.data.category == "annual-report" %}
+          {% include "resource-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    {# Policies #}
+    <section class="resources-section" aria-labelledby="res-policy">
+      <h2 id="res-policy" class="resources-section__title">Policies</h2>
+      <div class="row">
+        {% for item in collections.resources %}
+          {% if item.data.category == "policy" %}
+          {% include "resource-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    {# Other #}
+    <section class="resources-section" aria-labelledby="res-other">
+      <h2 id="res-other" class="resources-section__title">Other documents</h2>
+      <div class="row">
+        {% for item in collections.resources %}
+          {% if item.data.category == "other" %}
+          {% include "resource-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>

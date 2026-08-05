@@ -4,8 +4,13 @@
   "description": "SELf",
   "main": "index.js",
   "scripts": {
+    "start": "npx eleventy --serve",
+    "build": "npx eleventy",
+    "dev": "npx netlify dev",
+    "cms": "npx decap-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",

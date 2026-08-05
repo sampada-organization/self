@@ -1,0 +1,25 @@
+<div class="col-lg-4 col-md-6 col-sm-12">
+  <article class="resource-card">
+    {% if item.data.image %}
+    <div class="resource-card__thumb">
+      <img src="{{ item.data.image }}" alt="" loading="lazy" />
+    </div>
+    {% else %}
+    <div class="resource-card__icon" aria-hidden="true">
+      <i class="fa fa-file-pdf-o"></i>
+    </div>
+    {% endif %}
+    <h3 class="resource-card__title">{{ item.data.title }}</h3>
+    {% if item.data.year %}
+    <p class="resource-card__year">{{ item.data.year }}</p>
+    {% endif %}
+    {% if item.templateContent %}
+    <div class="resource-card__desc">{{ item.templateContent | safe }}</div>
+    {% endif %}
+    {% if item.data.file %}
+    <a class="resource-card__btn main-btn" href="{{ item.data.file }}" target="_blank" rel="noopener noreferrer">
+      Download PDF
+    </a>
+    {% endif %}
+  </article>
+</div>

@@ -1,0 +1,39 @@
+{# Homepage: quote-only, no photo/name/hover swap #}
+<div class="testimonial-section testimonial-section--home gray-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="section-title">
+          <h6>Together we push the limits</h6>
+          <h2><b>Beneficiary Testimonials</b></h2>
+        </div>
+      </div>
+    </div>
+    <div class="row testimonial-home-grid">
+      {% for item in collections.testimonialsHome %}
+      <div class="col-lg-6 col-md-12">
+        <blockquote class="testimonial-quote-card">
+          <div class="testimonial-quote-card__body">
+            <i class="las la-quote-left" aria-hidden="true"></i>
+            <div class="testimonial-quote-card__text">
+              {{ item.templateContent | safe }}
+            </div>
+            <i class="las la-quote-right" aria-hidden="true"></i>
+          </div>
+        </blockquote>
+      </div>
+      {% else %}
+      <div class="col-12">
+        <p class="text-center text-muted">Testimonials will appear here once published in the CMS.</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% if collections.testimonials.length %}
+    <div class="row">
+      <div class="col-12 text-center testimonial-home-cta">
+        <a class="main-btn" href="/testimonials/">Read all beneficiary stories</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>

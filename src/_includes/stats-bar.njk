@@ -1,0 +1,63 @@
+{#
+  Sexy stats bar: CMS stores exact numbers; display uses Cr / Lakh scaling.
+  Approx. label sits inside achievement-area, above the container.
+#}
+<div class="achievement-area section-padding theme-2 stats-bar">
+  <div class="container">
+    <div class="row stats-bar__row">
+      {# Loan Portfolio #}
+      {% set fmt = stats.loan | inrScale %}
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="single-counter-box stats-card">
+          <p class="counter-number stats-card__value" title="Exact: ₹{{ fmt.exact }}">
+            <span class="stats-card__currency">₹</span>
+            <span class="stats-card__num">{{ fmt.display }}</span>
+            {% if fmt.unit %}<span class="stats-card__unit">{{ fmt.unit }}</span>{% endif %}
+          </p>
+          <h6 class="stats-card__label">Loan Portfolio</h6>
+          <span class="stats-card__exact">₹{{ fmt.exact }}</span>
+        </div>
+      </div>
+
+      {# Credit Disbursed #}
+      {% set fmt = stats.credit | inrScale %}
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="single-counter-box stats-card">
+          <p class="counter-number stats-card__value" title="Exact: ₹{{ fmt.exact }}">
+            <span class="stats-card__currency">₹</span>
+            <span class="stats-card__num">{{ fmt.display }}</span>
+            {% if fmt.unit %}<span class="stats-card__unit">{{ fmt.unit }}</span>{% endif %}
+          </p>
+          <h6 class="stats-card__label">Credit Disbursed</h6>
+          <span class="stats-card__exact">₹{{ fmt.exact }}</span>
+        </div>
+      </div>
+
+      {# Households #}
+      {% set fmt = stats.household | inrScale %}
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="single-counter-box stats-card">
+          <p class="counter-number stats-card__value" title="Exact: {{ fmt.exact }}">
+            <span class="stats-card__num">{{ fmt.display }}</span>
+            {% if fmt.unit %}<span class="stats-card__unit">{{ fmt.unit }}</span>{% endif %}
+          </p>
+          <h6 class="stats-card__label">Households Served</h6>
+          <span class="stats-card__exact">{{ fmt.exact }}</span>
+        </div>
+      </div>
+
+      {# Lives Insured #}
+      {% set fmt = stats.insured | inrScale %}
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="single-counter-box stats-card">
+          <p class="counter-number stats-card__value" title="Exact: {{ fmt.exact }}">
+            <span class="stats-card__num">{{ fmt.display }}</span>
+            {% if fmt.unit %}<span class="stats-card__unit">{{ fmt.unit }}</span>{% endif %}
+          </p>
+          <h6 class="stats-card__label">Lives Insured</h6>
+          <span class="stats-card__exact">{{ fmt.exact }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

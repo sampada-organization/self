@@ -1,51 +1,210 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update
+  branch: development
 
-site_url: https://selforg.netlify.com
+# Local CMS (no Identity): run `npx decap-server` alongside `npx netlify dev`
 local_backend: true
-media_folder: "_site/assets/uploads"
+
+site_url: https://self.org.in
+display_url: https://self.org.in
+logo_url: /assets/img/logo.png
+
+# Image + PDF uploads land in the repo under assets/
+media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+# Optional: keep PDFs under assets/files as well (editors can still pick path)
+media_libraries:
+  - name: upload
+    config:
+      max_file_size: 25000000
+
 collections:
-  - name: "posts" #The name of the collection and should match our posts.json file's tag
-    label: "Field Speaks" #The name of the collection on the CMS itself
-    folder: "/src/blog" #The folder that our blog posts will be loaded from and saved to
-    create: true #Tells the CMS that new posts can be created
-    slug: "{{slug}}" #this sets the URL for the post
+  # —— People lists (customizable from CMS) ——
+  - name: "managementTeam"
+    label: "Management Team"
+    label_singular: "Team member"
+    folder: "src/management-team"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    sortable_fields: ["order", "name", "role"]
+    summary: "{{order}} — {{name}} ({{role}})"
+    fields:
+      - { label: "Full name", name: "name", widget: "string" }
+      - { label: "Role / title", name: "role", widget: "string" }
+      - {
+          label: "Photo",
+          name: "image",
+          widget: "image",
+          choose_url: false,
+          media_folder: "/assets/uploads/people",
+          public_folder: "/assets/uploads/people",
+          required: false,
+        }
+      - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+      - { label: "Email", name: "email", widget: "string", required: false }
+      - { label: "Display order", name: "order", widget: "number", value_type: "int", default: 10 }
+      - { label: "Hide page output", name: "permalink", widget: "hidden", default: false }
+      - { label: "Bio", name: "body", widget: "markdown" }
+
+  - name: "directors"
+    label: "Board of Directors"
+    label_singular: "Director"
+    folder: "src/directors-list"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    sortable_fields: ["order", "name", "role"]
+    summary: "{{order}} — {{name}} ({{role}})"
+    fields:
+      - { label: "Full name", name: "name", widget: "string" }
+      - { label: "Role / title", name: "role", widget: "string" }
+      - {
+          label: "Photo",
+          name: "image",
+          widget: "image",
+          choose_url: false,
+          media_folder: "/assets/uploads/people",
+          public_folder: "/assets/uploads/people",
+          required: false,
+        }
+      - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+      - { label: "Email", name: "email", widget: "string", required: false }
+      - { label: "Display order", name: "order", widget: "number", value_type: "int", default: 10 }
+      - { label: "Hide page output", name: "permalink", widget: "hidden", default: false }
+      - { label: "Bio", name: "body", widget: "markdown" }
+
+  # —— Resources / PDFs ——
+  - name: "resources"
+    label: "Resources (PDFs & files)"
+    label_singular: "Resource"
+    folder: "src/resources-list"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    sortable_fields: ["order", "title", "category"]
+    summary: "{{order}} — {{title}} [{{category}}]"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              { label: "Code of Conduct", value: "coc" },
+              { label: "Annual Report", value: "annual-report" },
+              { label: "Policy", value: "policy" },
+              { label: "Other", value: "other" },
+            ],
+          default: "other",
+        }
+      - {
+          label: "PDF / file",
+          name: "file",
+          widget: "file",
+          media_folder: "/assets/files",
+          public_folder: "/assets/files",
+          allow_multiple: false,
+        }
+      - {
+          label: "Cover / thumbnail (optional)",
+          name: "image",
+          widget: "image",
+          required: false,
+          media_folder: "/assets/uploads",
+          public_folder: "/assets/uploads",
+        }
+      - { label: "Year / label (optional)", name: "year", widget: "string", required: false }
+      - { label: "Display order", name: "order", widget: "number", value_type: "int", default: 10 }
+      - { label: "Featured on Resources page", name: "featured", widget: "boolean", default: true }
+      - { label: "Hide page output", name: "permalink", widget: "hidden", default: false }
+      - { label: "Short description", name: "body", widget: "markdown", required: false }
+
+  # —— Beneficiary testimonials ——
+  - name: "testimonials"
+    label: "Beneficiary Testimonials"
+    label_singular: "Testimonial"
+    folder: "src/testimonials-list"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    sortable_fields: ["order", "name", "town", "showOnHome"]
+    summary: "{{order}} — {{name}} ({{town}}){% if showOnHome %} · Home{% endif %}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Town / place", name: "town", widget: "string", required: false }
+      - {
+          label: "Photo (full testimonials page)",
+          name: "image",
+          widget: "image",
+          required: false,
+          default: "/assets/img/self.png",
+          media_folder: "/assets/uploads",
+          public_folder: "/assets/uploads",
+          hint: "Optional. Defaults to the SELF placeholder (same as existing testimonials). Shown on /testimonials/ only — not on the homepage strip.",
+        }
+      - {
+          label: "Show on homepage",
+          name: "showOnHome",
+          widget: "boolean",
+          default: false,
+          hint: "Turn on to feature this quote on the home page (quote only).",
+        }
+      - { label: "Display order", name: "order", widget: "number", value_type: "int", default: 10 }
+      - { label: "Hide page output", name: "permalink", widget: "hidden", default: false }
+      - { label: "Testimonial quote", name: "body", widget: "markdown" }
+
+  # —— Existing editorial collections ——
+  - name: "posts"
+    label: "Field Speaks"
+    folder: "src/blog"
+    create: true
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Post Body", name: "article", widget: "markdown" }
       - { label: "Written By", name: "writer", widget: "string" }
       - { label: "Written On", name: "writtenOn", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
-    # For Employee Speaks
-  - name: "employeeSpeaks" #The name of the collection and should match our posts.json file's tag
-    label: "Employee Speaks" #The name of the collection on the CMS itself
-    folder: "/src/employeeSpeaks" #The folder that our blog posts will be loaded from and saved to
-    create: true #Tells the CMS that new posts can be created
-    slug: "{{slug}}" #this sets the URL for the post
+      - {
+          label: "Image",
+          name: "image",
+          widget: "image",
+          media_folder: "/assets/uploads",
+          public_folder: "/assets/uploads",
+        }
+
+  - name: "employeeSpeaks"
+    label: "Employee Speaks"
+    folder: "src/employeeSpeaks"
+    create: true
+    slug: "{{slug}}"
     fields:
       - { label: "Employee Name", name: "title", widget: "string" }
       - { label: "Employee Designation", name: "designation", widget: "string" }
       - { label: "Post Body", name: "article", widget: "markdown" }
       - { label: "Image Name", name: "imageName", widget: "string" }
-    #For Openings
-  - name: "openings" #The name of the collection and should match our posts.json file's tag
-    label: "Career Openings" #The name of the collection on the CMS itself
-    folder: "/src/openings" #The folder that our blog posts will be loaded from and saved to
-    create: true #Tells the CMS that new posts can be created
-    slug: "{{slug}}" #this sets the URL for the post
+
+  - name: "openings"
+    label: "Career Openings"
+    folder: "src/openings"
+    create: true
+    slug: "{{slug}}"
     identifier_field: "role"
     fields:
       - { label: "Role Name", name: "role", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
-      - {
-          label: "Role Description",
-          name: "roledescription",
-          widget: "markdown",
-        }
+      - { label: "Role Description", name: "roledescription", widget: "markdown" }
       - { label: "Qualification", name: "qualification", widget: "markdown" }
       - {
           label: "Additional Requirements",
@@ -60,10 +219,47 @@ collections:
         name: "stats"
         file: "_data/stats.json"
         fields:
-          - { label: "Loan Portfolio", name: "loan", widget: "string"}
-          - { label: "Credit Disbursed", name: "credit", widget: "string"}
-          - { label: "Households Served", name: "household", widget: "string"}
-          - { label: "Lives Insured", name: "insured", widget: "string"}
-          - { label: "Loan Portfolio", name: "enterprises", widget: "string"}
-          - { label: "Loan Portfolio", name: "claims", widget: "string"}
-
+          - {
+              label: "Loan Portfolio (exact ₹ amount)",
+              name: "loan",
+              widget: "number",
+              value_type: "int",
+              min: 0,
+              hint: "Enter the full number in rupees, e.g. 137500001. Site shows Cr/Lakh automatically.",
+            }
+          - {
+              label: "Credit Disbursed (exact ₹ amount)",
+              name: "credit",
+              widget: "number",
+              value_type: "int",
+              min: 0,
+              hint: "Full amount in rupees. Displayed as Cr/Lakh on the site.",
+            }
+          - {
+              label: "Households Served (exact count)",
+              name: "household",
+              widget: "number",
+              value_type: "int",
+              min: 0,
+            }
+          - {
+              label: "Lives Insured (exact count)",
+              name: "insured",
+              widget: "number",
+              value_type: "int",
+              min: 0,
+            }
+          - {
+              label: "Enterprises (exact count)",
+              name: "enterprises",
+              widget: "number",
+              value_type: "int",
+              min: 0,
+            }
+          - {
+              label: "Claims (exact count)",
+              name: "claims",
+              widget: "number",
+              value_type: "int",
+              min: 0,
+            }

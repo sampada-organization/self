@@ -1,0 +1,10 @@
+---
+layout: base.njk
+permalink: /managementteam/
+---
+{% set pageTitle = "Management Team" %}
+{% set crumbLabel = "Management Team" %}
+{% include "page-header.njk" %}
+
+{% set people = collections.managementTeam %}
+{% include "people-list.njk" %}

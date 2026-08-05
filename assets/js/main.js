@@ -1,14 +1,8 @@
 (function ($) {
 	"use strict";
 
-	// Always hide preloader — register first so later plugin errors can't leave a blank green screen.
-	// window "load" can hang on slow external scripts/images; use multiple fallbacks.
-	function hidePreloader() {
-		$(".site-preloader-wrap, .slide-preloader-wrap").stop(true, true).fadeOut(400);
-	}
-	$(hidePreloader); // DOM ready
-	$(window).on("load", hidePreloader);
-	setTimeout(hidePreloader, 2500);
+	// Preloader removed site-wide for faster first paint (text/layout first).
+	$(".site-preloader-wrap, .slide-preloader-wrap").remove();
 
 	// Mobile Menu
 
@@ -101,13 +95,13 @@
 		duration: 7000,
 	});
 
-	//Counter Up
-
-	$(".counter-number span").counterUp({
-		delay: 10,
-		time: 1000,
-
-	});
+	// Counter Up only on plain numeric spans (not Cr/Lakh formatted stats)
+	if ($.fn.counterUp) {
+		$(".counter-number span[data-counter]").counterUp({
+			delay: 10,
+			time: 1000,
+		});
+	}
 
 	// Testimonial Carousel
 
@@ -210,14 +204,7 @@
 	});
 
 
-	// Active Bacground Color  
-
-	$(".single-testimonial-box").on("mouseover", function () {
-		$(".single-testimonial-box").removeClass("active");
-		$(this).addClass("active");
-	});
-
-
+	// Service cards may still use hover highlight (not testimonials)
 	$(".single-service-item").on("mouseover", function () {
 		$(".single-service-item").removeClass("active");
 		$(this).addClass("active");

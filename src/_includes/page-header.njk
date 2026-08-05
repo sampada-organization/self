@@ -1,0 +1,19 @@
+{#
+  Light “toaster” page chrome for purpose pages (not homepage).
+  Usage:
+    {% set pageTitle = "Management Team" %}
+    {% set crumbLabel = "Management Team" %}
+    {% include "page-header.njk" %}
+#}
+<div class="page-header-toast" role="banner">
+  <div class="container-fluid">
+    <div class="page-header-toast__inner">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="page-breadcrumb__sep" aria-hidden="true">/</span>
+        <span class="page-breadcrumb__current">{{ crumbLabel or pageTitle }}</span>
+      </nav>
+      <h1 class="page-header-toast__title">{{ pageTitle }}</h1>
+    </div>
+  </div>
+</div>

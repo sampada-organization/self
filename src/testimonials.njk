@@ -1,0 +1,54 @@
+---
+layout: base.njk
+permalink: /testimonials/
+---
+{% set pageTitle = "Beneficiary Testimonials" %}
+{% set crumbLabel = "Beneficiary Testimonials" %}
+{% include "page-header.njk" %}
+
+<div class="testimonials-page section-padding">
+  <div class="container">
+    <p class="testimonials-page__intro">
+      Stories from women and families who partnered with SELF for microfinance, enterprise, and insurance support.
+    </p>
+
+    <div class="row testimonials-page__grid">
+      {% for item in collections.testimonials %}
+      <div class="col-lg-6 col-md-12">
+        <article class="testimonial-full-card">
+          <div class="testimonial-full-card__quote">
+            <i class="las la-quote-left" aria-hidden="true"></i>
+            <div class="testimonial-full-card__text">
+              {{ item.templateContent | safe }}
+            </div>
+          </div>
+          <footer class="testimonial-full-card__meta">
+            {% set photo = item.data.image if item.data.image else "/assets/img/self.png" %}
+            <img
+              class="testimonial-full-card__photo"
+              src="{{ photo }}"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="56"
+              height="56"
+            />
+            <div class="testimonial-full-card__who">
+              {% if item.data.name %}
+              <strong class="testimonial-full-card__name">{{ item.data.name }}</strong>
+              {% endif %}
+              {% if item.data.town %}
+              <span class="testimonial-full-card__town">{{ item.data.town }}</span>
+              {% endif %}
+            </div>
+          </footer>
+        </article>
+      </div>
+      {% else %}
+      <div class="col-12">
+        <p class="text-center">No testimonials yet. Add them in the CMS under <strong>Beneficiary Testimonials</strong>.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

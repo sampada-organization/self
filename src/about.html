@@ -2,18 +2,10 @@
 layout: "base.njk"
 ---
 <link rel="stylesheet" href="/assets/fonts/custom/flaticon.css">
-<div class="breadcroumb-area bread-bg-2">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="breadcroumb-title text-center">
-					<h1>About Us</h1>
-					<h6><a href="/">Home</a> / About Us</h6>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+{% set pageTitle = "About US" %}
+{% set crumbLabel = "About US" %}
+{% include "page-header.njk" %}
+
 
 
 <!-- About Area-->

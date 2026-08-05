@@ -1,0 +1,10 @@
+---
+layout: base.njk
+permalink: /directors/
+---
+{% set pageTitle = "Board Of Directors" %}
+{% set crumbLabel = "Directors" %}
+{% include "page-header.njk" %}
+
+{% set people = collections.directors %}
+{% include "people-list.njk" %}

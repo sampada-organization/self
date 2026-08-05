@@ -40,25 +40,17 @@
     <!-- Netlify Identity: async so a slow CDN cannot block first paint / window.load forever -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async></script>
   </head>
-  <body>
-    <!-- Pre Loader -->
-    <div class="site-preloader-wrap">
-      <div class="spinner"></div>
-    </div>
+  <body class="no-site-preloader">
     <!-- Header Top Area -->
     <div class="header-top-area">
-      <div class="container ">
-        <div class="row">
-          <div class="social-icon">
-            <a href="tel:18008911301">
-              <i class="fa fa-phone"></i>1800 891 1301</a>
-            <a href="mailto:self@sampada.org">
-              <i class="fa fa-envelope-o"></i>
-              self@sampada.org</a>
-            <a href="https://www.linkedin.com/company/sampada-entrepreneurship-and-livelihoods-foundation/?originalSubdomain=in" target="_blank" rel="noopener noreferrer">
-              <i class="fa fa-linkedin"></i>
-              <fa-phone></fa-phone>
-            </a>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12">
+            <div class="social-icon header-top-contacts">
+              <a href="tel:18008911301"><i class="fa fa-phone"></i><span>1800 891 1301</span></a>
+              <a href="mailto:self@sampada.org"><i class="fa fa-envelope-o"></i><span>self@sampada.org</span></a>
+              <a href="https://www.linkedin.com/company/sampada-entrepreneurship-and-livelihoods-foundation/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -66,93 +58,62 @@
     <!-- Header Area -->
     <div class="header-area">
       <div class="sticky-area">
-        <div class="navigation">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="logo m-auto">
-                <a class="navbar-brand" href="/"><img src="/assets/img/logo.png" alt=""/></a>
+        <div class="navigation site-nav">
+          <div class="row align-items-center no-gutters">
+            <div class="col-8 col-md-4 col-lg-3">
+              <div class="logo">
+                <a class="navbar-brand" href="/">
+                  <img src="/assets/img/logo.png" alt="SELF" width="200" height="56" decoding="async"/>
+                </a>
               </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-4 col-md-8 col-lg-9">
               <div class="main-menu">
                 <nav class="navbar navbar-expand-lg">
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
                   </button>
-                  <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                  <div class="collapse navbar-collapse justify-content-lg-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link" href="/about">Who We Are
-                        </a>
+                        <a class="nav-link" href="/about">Who We Are</a>
                         <ul class="sub-menu">
-                          <li>
-                            <a href="/about">About US</a>
-                          </li>
-                          <li>
-                            <a href="/directors">Directors</a>
-                          </li>
-                          <li>
-                            <a href="/managementTeam">Management Team</a>
-                          </li>
+                          <li><a href="/about">About US</a></li>
+                          <li><a href="/directors/">Directors</a></li>
+                          <li><a href="/managementteam/">Management Team</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="index.html">What We Do
-                        </a>
+                        <a class="nav-link" href="/microfinance">What We Do</a>
                         <ul class="sub-menu">
-                          <li>
-                            <a href="/microfinance">Micro Finance</a>
-                          </li>
-                          <li>
-                            <a href="/microenterprise">Micro Enterprise</a>
-                          </li>
-                          <li>
-                            <a href="/microinsurance">Micro Insurannce</a>
-                          </li>
+                          <li><a href="/microfinance">Micro Finance</a></li>
+                          <li><a href="/microenterprise">Micro Enterprise</a></li>
+                          <li><a href="/microinsurance">Micro Insurance</a></li>
+                          <li><a href="/testimonials/">Beneficiary Testimonials</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="index.html">SELF Speaks
-                        </a>
+                        <a class="nav-link" href="/fieldSpeaks">SELF Speaks</a>
                         <ul class="sub-menu">
-                          <li>
-                            <a href="/employeeSpeaks">Employee Speak</a>
-                          </li>
-                          <li>
-                            <a href="/fieldSpeaks">Field Speaks</a>
-                          </li>
+                          <li><a href="/employeeSpeaks">Employee Speak</a></li>
+                          <li><a href="/fieldSpeaks">Field Speaks</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/careers">Careers
-                        </a>
+                        <a class="nav-link" href="/careers">Careers</a>
                         <ul class="sub-menu">
-                          <li>
-                            <a href="/lifeAtSelf">Life at SELF</a>
-                          </li>
-                          <li>
-                            <a href=/careers>Current Openings</a>
-                          </li>
+                          <li><a href="/lifeAtSelf">Life at SELF</a></li>
+                          <li><a href="/careers">Current Openings</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="index.html">Resources
-                        </a>
+                        <a class="nav-link" href="/resources/">Resources</a>
                         <ul class="sub-menu">
-                          <li>
-                            <a href="/assets/files/cocV2.pdf" target="_blank">Code of Conduct</a>
-                          </li>
-                          {# <li>
-                            <a href="/reports" target="_blank">Annual Report</a>
-                          </li> #}
-                          <li>
-                            <a href="/assets/files/2024-25.pdf" target="_blank">Last Year Report</a>
-                          </li>
-                          {# <li>
-                            <a href="/reports" target="_blank">Last Annual Report</a>
-                          </li> #}
+                          <li><a href="/resources/">All Resources</a></li>
+                          <li><a href="/assets/files/cocV2.pdf" target="_blank" rel="noopener noreferrer">Code of Conduct</a></li>
+                          <li><a href="/assets/files/2024-25.pdf" target="_blank" rel="noopener noreferrer">Last Year Report</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
@@ -161,11 +122,6 @@
                     </ul>
                   </div>
                 </nav>
-              </div>
-            </div>
-            <div class="col-lg-1 text-right">
-              <div class="header-right-content">
-                <a href="https://self.bijliftt.com/" target="_blank" class="main-btn">MIS</a>
               </div>
             </div>
           </div>
@@ -212,13 +168,15 @@
                   <a href="/microfinance">Micro Finance</a>
                   <a href="/microinsurance">Micro Insurance</a>
                   <a href="/microenterprise">Micro Enterprise</a>
+                  <a href="/testimonials/">Beneficiary Testimonials</a>
                 </li>
               </ul>
               <h5>Useful Links</h5>
               <ul>
                 <li>
-                  <a href="/managementTeam">Management Team</a>
-                  <a href="/directors">Board Of Directors</a>
+                  <a href="/managementteam/">Management Team</a>
+                  <a href="/directors/">Board Of Directors</a>
+                  <a href="/resources/">Resources</a>
                 </li>
               </ul>
             </div>

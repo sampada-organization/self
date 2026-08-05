@@ -1,20 +1,10 @@
 ---
 layout: 'base.njk' 
 ---
-<div class="breadcroumb-area bread-bg-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcroumb-title text-center">
-                    <h1 class="white">Employee Speaks</h1>
-                    <h6 class="white">
-                        <a href="/">Home</a>
-                        / Employee Speaks</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% set pageTitle = "Employee Speaks" %}
+{% set crumbLabel = "Employee Speaks" %}
+{% include "page-header.njk" %}
+
 
 <div class="causes-area section-padding">
     <div class="container">

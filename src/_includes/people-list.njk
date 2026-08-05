@@ -1,0 +1,55 @@
+{# Expects: people = collection items with data.name, role, image, linkedin, email, templateContent #}
+<div class="people-list section-padding">
+  <div class="container">
+    {% for person in people %}
+    <div class="row people-list__row align-items-start">
+      <div class="col-lg-4 col-md-5">
+        <div class="people-card">
+          {% if person.data.image %}
+          <div class="people-card__photo-wrap">
+            <img
+              class="people-card__photo"
+              src="{{ person.data.image }}"
+              alt="{{ person.data.name }}"
+              loading="lazy"
+              width="400"
+              height="480"
+            />
+          </div>
+          {% endif %}
+          <div class="people-card__meta">
+            <h2 class="people-card__name">{{ person.data.name }}</h2>
+            {% if person.data.role %}
+            <p class="people-card__role">{{ person.data.role }}</p>
+            {% endif %}
+            <ul class="people-card__social">
+              {% if person.data.linkedin %}
+              <li>
+                <a href="{{ person.data.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </li>
+              {% endif %}
+              {% if person.data.email %}
+              <li>
+                <a href="mailto:{{ person.data.email }}" aria-label="Email">
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-7">
+        <div class="people-card__bio">
+          {{ person.templateContent | safe }}
+        </div>
+      </div>
+    </div>
+    {% if not loop.last %}<hr class="people-list__divider" />{% endif %}
+    {% else %}
+    <p class="text-center">Content will appear here once added in the CMS.</p>
+    {% endfor %}
+  </div>
+</div>
