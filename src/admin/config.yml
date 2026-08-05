@@ -9,6 +9,13 @@ site_url: https://self.org.in
 display_url: https://self.org.in
 logo_url: /assets/img/logo.png
 
+# Full-width form editor only (no live preview pane) — easier on mobile
+editor:
+  preview: false
+
+# Hide deploy-preview links in the editor toolbar
+show_preview_links: false
+
 # Image + PDF uploads land in the repo under assets/
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"

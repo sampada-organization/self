@@ -20,17 +20,47 @@
 		}, 0);
 	});
 
-	// Accordion submenus on mobile (click), not hover flyouts
+	// Accordion submenus: parents are labels only (not page links).
+	// Contact and any item without .sub-menu stay normal links.
+	function setSubmenuOpen($li, open) {
+		var $sub = $li.children(".sub-menu");
+		var $link = $li.children("a.nav-link, a.nav-link--parent");
+		var $toggler = $li.find("> a .sub-nav-toggler");
+		$li.toggleClass("is-open", open);
+		$link.attr("aria-expanded", open ? "true" : "false");
+		$toggler.toggleClass("active", open);
+		if (!$sub.length) return;
+		if (isMobileNav()) {
+			$sub.stop(true, true)[open ? "slideDown" : "slideUp"](180);
+		} else {
+			// Desktop uses CSS hover; keep class in sync for click-open if used
+			$sub.css("display", "");
+		}
+	}
+
+	function closeSiblingSubmenus($li) {
+		$li.siblings(".nav-item").each(function () {
+			setSubmenuOpen($(this), false);
+		});
+	}
+
 	var $navItems = $(".site-nav .navbar-nav > .nav-item");
 	$navItems.each(function () {
 		var $li = $(this);
 		var $sub = $li.children(".sub-menu");
 		if (!$sub.length) return;
+		$li.addClass("has-sub");
 		var $link = $li.children("a.nav-link");
+		$link.addClass("nav-link--parent");
+		// Never navigate: parents only expand/collapse children
+		if ($link.attr("href") && $link.attr("href") !== "#") {
+			$link.attr("href", "#");
+		}
+		$link.attr({ role: "button", "aria-haspopup": "true", "aria-expanded": "false" });
 		if ($link.find(".sub-nav-toggler").length) return;
 		$link.css("position", "relative");
 		$link.append(
-			'<button type="button" class="sub-nav-toggler" aria-label="Toggle submenu"><i class="fa fa-angle-down"></i></button>'
+			'<button type="button" class="sub-nav-toggler" aria-label="Toggle submenu" tabindex="-1"><i class="fa fa-angle-down"></i></button>'
 		);
 	});
 
@@ -39,27 +69,34 @@
 		e.stopPropagation();
 		var $li = $(this).closest(".nav-item");
 		var open = !$li.hasClass("is-open");
-		$li.siblings(".nav-item").removeClass("is-open").children(".sub-menu").slideUp(180);
-		$li.toggleClass("is-open", open);
-		$li.children(".sub-menu").stop(true, true).slideToggle(180);
-		$(this).toggleClass("active", open);
+		closeSiblingSubmenus($li);
+		setSubmenuOpen($li, open);
 		return false;
 	});
 
-	// Parent link on mobile: first tap expands submenu if present
+	// Parent labels: always toggle submenu, never follow a page URL
+	// (Contact has no .sub-menu so it is unaffected)
 	$(document).on("click", ".site-nav .navbar-nav > .nav-item > a.nav-link", function (e) {
-		if (!isMobileNav()) return;
 		var $li = $(this).closest(".nav-item");
 		var $sub = $li.children(".sub-menu");
-		if (!$sub.length) return;
-		// allow real navigation only if already open and click is not on caret
-		if (!$li.hasClass("is-open")) {
-			e.preventDefault();
-			$li.siblings(".nav-item").removeClass("is-open").children(".sub-menu").slideUp(180);
-			$li.addClass("is-open");
-			$sub.stop(true, true).slideDown(180);
-			$li.find("> a .sub-nav-toggler").addClass("active");
+		if (!$sub.length) return; // Contact / leaf items keep normal click
+
+		e.preventDefault();
+		e.stopPropagation();
+
+		// Mobile: accordion open/close. Desktop: hover shows menu; click still toggles class.
+		if (isMobileNav()) {
+			var open = !$li.hasClass("is-open");
+			closeSiblingSubmenus($li);
+			setSubmenuOpen($li, open);
+		} else {
+			// Prevent jump to # and optional click-to-pin open on desktop
+			var openDesk = !$li.hasClass("is-open");
+			$li.siblings(".nav-item").removeClass("is-open");
+			$li.toggleClass("is-open", openDesk);
+			$(this).attr("aria-expanded", openDesk ? "true" : "false");
 		}
+		return false;
 	});
 
 	//Home Page Slide

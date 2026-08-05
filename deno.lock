@@ -11,10 +11,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@11ty/eleventy@~0.12.1",
-        "npm:axios@>=0.21.1",
-        "npm:netlify@^6.1.16",
-        "npm:socket.io@>=2.4.0"
+        "npm:@11ty/eleventy@~0.12.1"
       ]
     }
   }

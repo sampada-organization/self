@@ -75,7 +75,7 @@
             <div class="site-nav__bar">
               <div class="site-nav__brand">
                 <a class="navbar-brand site-nav__logo" href="/">
-                  <img src="/assets/img/logo.png" alt="SELF" width="180" height="50" decoding="async"/>
+                  <img src="/assets/img/logo.png" alt="SELF" width="320" height="76" decoding="async"/>
                 </a>
               </div>
               <button
@@ -94,16 +94,18 @@
             </div>
             <div class="collapse navbar-collapse site-nav__collapse justify-content-lg-end" id="navbarSupportedContent">
               <ul class="navbar-nav site-nav__list">
-                <li class="nav-item">
-                  <a class="nav-link" href="/about" data-i18n="who_we_are">Who We Are</a>
+                {# Parent labels are not page links — they only open/close submenus.
+                   Real destinations live under the submenu (Contact has no children). #}
+                <li class="nav-item has-sub">
+                  <a class="nav-link nav-link--parent" href="#" role="button" aria-haspopup="true" aria-expanded="false" data-i18n="who_we_are">Who We Are</a>
                   <ul class="sub-menu">
                     <li><a href="/about" data-i18n="about_us">About US</a></li>
                     <li><a href="/directors/" data-i18n="directors">Directors</a></li>
                     <li><a href="/managementteam/" data-i18n="management_team">Management Team</a></li>
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/microfinance" data-i18n="what_we_do">What We Do</a>
+                <li class="nav-item has-sub">
+                  <a class="nav-link nav-link--parent" href="#" role="button" aria-haspopup="true" aria-expanded="false" data-i18n="what_we_do">What We Do</a>
                   <ul class="sub-menu">
                     <li><a href="/microfinance" data-i18n="micro_finance">Micro Finance</a></li>
                     <li><a href="/microenterprise" data-i18n="micro_enterprise">Micro Enterprise</a></li>
@@ -111,22 +113,22 @@
                     <li><a href="/testimonials/" data-i18n="beneficiary_testimonials">Beneficiary Testimonials</a></li>
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/fieldSpeaks" data-i18n="self_speaks">SELF Speaks</a>
+                <li class="nav-item has-sub">
+                  <a class="nav-link nav-link--parent" href="#" role="button" aria-haspopup="true" aria-expanded="false" data-i18n="self_speaks">SELF Speaks</a>
                   <ul class="sub-menu">
                     <li><a href="/employeeSpeaks" data-i18n="employee_speak">Employee Speak</a></li>
                     <li><a href="/fieldSpeaks" data-i18n="field_speaks">Field Speaks</a></li>
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/careers" data-i18n="careers">Careers</a>
+                <li class="nav-item has-sub">
+                  <a class="nav-link nav-link--parent" href="#" role="button" aria-haspopup="true" aria-expanded="false" data-i18n="careers">Careers</a>
                   <ul class="sub-menu">
                     <li><a href="/lifeAtSelf" data-i18n="life_at_self">Life at SELF</a></li>
                     <li><a href="/careers" data-i18n="current_openings">Current Openings</a></li>
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/resources/" data-i18n="resources">Resources</a>
+                <li class="nav-item has-sub">
+                  <a class="nav-link nav-link--parent" href="#" role="button" aria-haspopup="true" aria-expanded="false" data-i18n="resources">Resources</a>
                   <ul class="sub-menu">
                     <li><a href="/resources/" data-i18n="all_resources">All Resources</a></li>
                     <li><a href="/assets/files/cocV2.pdf" target="_blank" rel="noopener noreferrer" data-i18n="code_of_conduct">Code of Conduct</a></li>
