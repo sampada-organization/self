@@ -71,77 +71,74 @@
     <div class="header-area">
       <div class="sticky-area">
         <div class="navigation site-nav">
-          <div class="site-nav__row">
-            {# Mobile: toggler first in DOM for focus order; visual order logo left / toggle right via flex #}
-            <div class="site-nav__brand">
-              <a class="navbar-brand site-nav__logo" href="/">
-                <img src="/assets/img/logo.png" alt="SELF" width="180" height="50" decoding="async"/>
-              </a>
+          <nav class="navbar navbar-expand-lg site-nav__navbar main-menu">
+            <div class="site-nav__bar">
+              <div class="site-nav__brand">
+                <a class="navbar-brand site-nav__logo" href="/">
+                  <img src="/assets/img/logo.png" alt="SELF" width="180" height="50" decoding="async"/>
+                </a>
+              </div>
+              <button
+                class="navbar-toggler site-nav__toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+              </button>
             </div>
-            <div class="site-nav__menu main-menu">
-              <nav class="navbar navbar-expand-lg site-nav__navbar">
-                  <button
-                    class="navbar-toggler site-nav__toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                  >
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse justify-content-lg-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link" href="/about" data-i18n="who_we_are">Who We Are</a>
-                        <ul class="sub-menu">
-                          <li><a href="/about" data-i18n="about_us">About US</a></li>
-                          <li><a href="/directors/" data-i18n="directors">Directors</a></li>
-                          <li><a href="/managementteam/" data-i18n="management_team">Management Team</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/microfinance" data-i18n="what_we_do">What We Do</a>
-                        <ul class="sub-menu">
-                          <li><a href="/microfinance" data-i18n="micro_finance">Micro Finance</a></li>
-                          <li><a href="/microenterprise" data-i18n="micro_enterprise">Micro Enterprise</a></li>
-                          <li><a href="/microinsurance" data-i18n="micro_insurance">Micro Insurance</a></li>
-                          <li><a href="/testimonials/" data-i18n="beneficiary_testimonials">Beneficiary Testimonials</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/fieldSpeaks" data-i18n="self_speaks">SELF Speaks</a>
-                        <ul class="sub-menu">
-                          <li><a href="/employeeSpeaks" data-i18n="employee_speak">Employee Speak</a></li>
-                          <li><a href="/fieldSpeaks" data-i18n="field_speaks">Field Speaks</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/careers" data-i18n="careers">Careers</a>
-                        <ul class="sub-menu">
-                          <li><a href="/lifeAtSelf" data-i18n="life_at_self">Life at SELF</a></li>
-                          <li><a href="/careers" data-i18n="current_openings">Current Openings</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/resources/" data-i18n="resources">Resources</a>
-                        <ul class="sub-menu">
-                          <li><a href="/resources/" data-i18n="all_resources">All Resources</a></li>
-                          <li><a href="/assets/files/cocV2.pdf" target="_blank" rel="noopener noreferrer" data-i18n="code_of_conduct">Code of Conduct</a></li>
-                          <li><a href="/assets/files/2024-25.pdf" target="_blank" rel="noopener noreferrer" data-i18n="last_year_report">Last Year Report</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#footer-link" data-i18n="contact">Contact</a>
-                      </li>
-                    </ul>
-                  </div>
-              </nav>
+            <div class="collapse navbar-collapse site-nav__collapse justify-content-lg-end" id="navbarSupportedContent">
+              <ul class="navbar-nav site-nav__list">
+                <li class="nav-item">
+                  <a class="nav-link" href="/about" data-i18n="who_we_are">Who We Are</a>
+                  <ul class="sub-menu">
+                    <li><a href="/about" data-i18n="about_us">About US</a></li>
+                    <li><a href="/directors/" data-i18n="directors">Directors</a></li>
+                    <li><a href="/managementteam/" data-i18n="management_team">Management Team</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/microfinance" data-i18n="what_we_do">What We Do</a>
+                  <ul class="sub-menu">
+                    <li><a href="/microfinance" data-i18n="micro_finance">Micro Finance</a></li>
+                    <li><a href="/microenterprise" data-i18n="micro_enterprise">Micro Enterprise</a></li>
+                    <li><a href="/microinsurance" data-i18n="micro_insurance">Micro Insurance</a></li>
+                    <li><a href="/testimonials/" data-i18n="beneficiary_testimonials">Beneficiary Testimonials</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/fieldSpeaks" data-i18n="self_speaks">SELF Speaks</a>
+                  <ul class="sub-menu">
+                    <li><a href="/employeeSpeaks" data-i18n="employee_speak">Employee Speak</a></li>
+                    <li><a href="/fieldSpeaks" data-i18n="field_speaks">Field Speaks</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/careers" data-i18n="careers">Careers</a>
+                  <ul class="sub-menu">
+                    <li><a href="/lifeAtSelf" data-i18n="life_at_self">Life at SELF</a></li>
+                    <li><a href="/careers" data-i18n="current_openings">Current Openings</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/resources/" data-i18n="resources">Resources</a>
+                  <ul class="sub-menu">
+                    <li><a href="/resources/" data-i18n="all_resources">All Resources</a></li>
+                    <li><a href="/assets/files/cocV2.pdf" target="_blank" rel="noopener noreferrer" data-i18n="code_of_conduct">Code of Conduct</a></li>
+                    <li><a href="/assets/files/2024-25.pdf" target="_blank" rel="noopener noreferrer" data-i18n="annual_report">Annual Report</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link js-contact-focus" href="#get-in-touch" data-i18n="contact">Contact</a>
+                </li>
+              </ul>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -198,7 +195,7 @@
               </ul>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
-              <div class="contact-form footer-contact">
+              <div class="contact-form footer-contact" id="get-in-touch" tabindex="-1">
                 <h3 class="footer-header" data-i18n="get_in_touch">Get in Touch</h3>
                 <form name="contact-form" id="contactForm" action="#" method="POST" data-netlify="true">
                   <input type="text" name="name" id="name" required="" placeholder="User Name" data-i18n="user_name"/>

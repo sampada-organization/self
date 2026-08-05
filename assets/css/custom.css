@@ -444,27 +444,50 @@ select {
   }
 }
 
-/* —— Main nav: logo + hamburger + menu —— */
-.site-nav {
-  padding: 0.4rem 0.75rem !important;
-  height: auto !important;
-  min-height: 64px;
+/* —— Main nav: logo + hamburger + full-width mobile menu —— */
+.header-area {
+  position: relative;
+  z-index: 1030;
   background: #fff;
 }
 
-.site-nav__row {
+.header-area .sticky-area {
+  position: relative;
+  z-index: 1030;
+  background: #fff;
+}
+
+.site-nav {
+  padding: 0.45rem 0.75rem !important;
+  height: auto !important;
+  min-height: 64px;
+  background: #fff;
+  position: relative;
+  z-index: 1030;
+}
+
+.site-nav__navbar {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  padding: 0 !important;
+  margin: 0;
+  position: static !important;
+}
+
+.site-nav__bar {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.35rem 0.75rem;
+  gap: 0.5rem;
   width: 100%;
+  min-height: 52px;
 }
 
 .site-nav__brand {
   flex: 1 1 auto;
   min-width: 0;
-  order: 1;
 }
 
 .site-nav__logo {
@@ -483,45 +506,36 @@ select {
   filter: none;
 }
 
-.site-nav__menu {
-  flex: 0 0 auto;
-  order: 2;
-  margin-left: auto;
-}
-
-.site-nav__navbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
+.site-nav__collapse {
   width: 100%;
-  padding: 0;
-  position: relative;
 }
 
-/* Hamburger: fixed size box, three even bars — override theme absolute positioning */
+/* Hamburger: fixed size, never absolute-off-screen */
 .site-nav__toggler.navbar-toggler,
 .site-nav .navbar-toggler {
   position: relative !important;
   top: auto !important;
   right: auto !important;
   left: auto !important;
+  float: none !important;
   order: 0;
-  display: inline-flex;
+  display: inline-flex !important;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 44px;
-  height: 44px;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px;
   padding: 0 !important;
   margin: 0 !important;
   border: 1px solid #e5e5e5 !important;
-  border-radius: 10px;
+  border-radius: 10px !important;
   background: #fff !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  z-index: 20;
+  z-index: 1040;
   cursor: pointer;
+  outline: none;
 }
 
 .site-nav__toggler .navbar-toggler-icon,
@@ -538,7 +552,6 @@ select {
   opacity: 1;
 }
 
-/* Open state → X (when .active is toggled by theme JS, or aria-expanded) */
 .site-nav__toggler.active,
 .site-nav__toggler[aria-expanded="true"] {
   border-color: var(--green, #08944c) !important;
@@ -565,6 +578,9 @@ select {
 
 .site-nav .navbar-nav {
   align-items: stretch;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .site-nav .nav-link {
@@ -572,67 +588,139 @@ select {
   padding: 0.85rem 0.45rem !important;
 }
 
+/* —— Mobile: full-width in-flow menu under logo bar —— */
 @media (max-width: 991.98px) {
-  /* Toggler sits first visually on the right; brand left */
-  .site-nav__brand {
-    order: 1;
-  }
-
-  .site-nav__menu {
-    order: 2;
-    flex: 0 0 auto;
-  }
-
   .site-nav__navbar {
-    width: auto;
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .site-nav__navbar .navbar-collapse {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    left: auto;
-    width: min(100vw - 1.5rem, 320px);
-    background: #fff;
+  .site-nav__bar {
+    width: 100%;
+  }
+
+  /* Override old theme absolute popup styles completely */
+  .main-menu .navbar .navbar-collapse,
+  .site-nav .navbar-collapse,
+  .site-nav__collapse {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.45rem 0 0 !important;
+    padding: 0.15rem 0 0.35rem !important;
+    background: #fff !important;
     border-radius: 12px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
-    padding: 0.35rem 0.75rem 0.75rem;
-    margin: 0;
-    max-height: min(70vh, 520px);
-    overflow-y: auto;
-    z-index: 1000;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08) !important;
+    max-height: min(70vh, 560px) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    z-index: 1;
   }
 
-  /* When menu is open, expand menu column full width under row */
-  .site-nav__menu {
-    position: relative;
+  .site-nav .navbar-collapse.collapse:not(.show) {
+    display: none !important;
+  }
+
+  .site-nav .navbar-collapse.collapse.show,
+  .site-nav .navbar-collapse.collapsing {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .site-nav .navbar-nav,
+  .site-nav__list {
+    display: block !important;
+    width: 100% !important;
+    flex-direction: column !important;
   }
 
   .site-nav .nav-item {
-    margin-right: 0 !important;
+    display: block;
+    width: 100%;
+    margin: 0 !important;
     border-bottom: 1px solid #f0f0f0;
+    position: relative;
   }
 
+  .site-nav .nav-item:last-child {
+    border-bottom: 0;
+  }
+
+  .site-nav .nav-link {
+    display: block !important;
+    width: 100%;
+    padding: 0.9rem 2.75rem 0.9rem 0.95rem !important;
+    font-size: 1rem !important;
+    line-height: 1.35 !important;
+    color: #191919 !important;
+    white-space: normal !important;
+  }
+
+  /* Submenus: accordion full width */
   .site-nav .sub-menu {
     position: static !important;
     opacity: 1 !important;
     visibility: visible !important;
     width: 100% !important;
-    box-shadow: none !important;
-    padding-left: 0.75rem;
-    display: none;
+    left: 0 !important;
     top: auto !important;
+    box-shadow: none !important;
+    background: #f6faf7 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: none;
+    border-top: 1px solid #e4efe8;
   }
 
-  .site-nav .nav-item:hover > .sub-menu,
-  .site-nav .nav-item:focus-within > .sub-menu,
-  .site-nav .nav-item.open > .sub-menu {
+  .site-nav .nav-item.is-open > .sub-menu {
+    display: block !important;
+  }
+
+  .site-nav .nav-item:hover > .sub-menu {
+    display: none;
+  }
+
+  .site-nav .nav-item.is-open:hover > .sub-menu {
+    display: block !important;
+  }
+
+  .site-nav .sub-menu li a {
     display: block;
+    padding: 0.72rem 0.95rem 0.72rem 1.4rem !important;
+    font-size: 0.92rem !important;
+    color: #333 !important;
+    border-bottom: 1px solid #eef2ef;
+    white-space: normal !important;
+  }
+
+  .site-nav .sub-menu li:last-child a {
+    border-bottom: 0;
+  }
+
+  .site-nav .sub-nav-toggler {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute !important;
+    top: 0.4rem;
+    right: 0.4rem;
+    width: 2.35rem;
+    height: 2.35rem;
+    padding: 0 !important;
+    border: 0;
+    background: transparent;
+    color: var(--green, #08944c);
+    z-index: 2;
   }
 
   .header-area .navigation {
     height: auto !important;
-    padding: 0.35rem 10px !important;
+    padding: 0.4rem 0.65rem !important;
   }
 
   .is-sticky .sticky-area {
@@ -641,20 +729,41 @@ select {
 }
 
 @media (min-width: 992px) {
+  .site-nav__navbar {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .site-nav__bar {
+    width: auto;
+    flex: 0 0 auto;
+  }
+
   .site-nav__toggler {
     display: none !important;
   }
 
-  .site-nav__menu {
-    flex: 1 1 auto;
-  }
-
-  .site-nav__navbar {
-    width: 100%;
-  }
-
-  .site-nav .navbar-collapse {
+  .site-nav__collapse {
     display: flex !important;
+    flex: 1 1 auto;
+    width: auto !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .site-nav .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+  }
+
+  .site-nav .sub-nav-toggler {
+    display: none !important;
   }
 }
 
@@ -1060,5 +1169,72 @@ html[data-lang="mr"] body {
 
   .lang-switcher__fab {
     padding: 0.7rem;
+  }
+}
+
+/* —— Contact / Get in Touch attention pulse —— */
+#get-in-touch {
+  border-radius: 14px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  scroll-margin-top: 100px;
+}
+
+#get-in-touch.contact-attention {
+  animation: contact-attention-bounce 0.7s ease-out, contact-attention-glow 2.1s ease-out;
+  z-index: 5;
+  position: relative;
+}
+
+#get-in-touch.contact-attention .footer-header {
+  animation: contact-attention-title 0.9s ease-out;
+}
+
+@keyframes contact-attention-bounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-10px) scale(1.02);
+  }
+  55% {
+    transform: translateY(0) scale(1.01);
+  }
+  75% {
+    transform: translateY(-4px) scale(1.015);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes contact-attention-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(8, 148, 76, 0.55), 0 0 0 0 rgba(230, 0, 0, 0.25);
+    outline: 2px solid transparent;
+  }
+  25% {
+    box-shadow: 0 0 0 6px rgba(8, 148, 76, 0.35), 0 12px 36px rgba(8, 148, 76, 0.28);
+    outline: 2px solid rgba(8, 148, 76, 0.65);
+    outline-offset: 4px;
+  }
+  55% {
+    box-shadow: 0 0 0 10px rgba(230, 0, 0, 0.12), 0 10px 28px rgba(8, 148, 76, 0.2);
+    outline-color: rgba(230, 0, 0, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(8, 148, 76, 0), 0 0 0 0 transparent;
+    outline-color: transparent;
+  }
+}
+
+@keyframes contact-attention-title {
+  0%,
+  100% {
+    transform: scale(1);
+    color: inherit;
+  }
+  40% {
+    transform: scale(1.04);
+    color: var(--red, #e60000);
   }
 }

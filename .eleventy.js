@@ -2,6 +2,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("src/admin");
 
+  // Expose dev server on LAN (not only 127.0.0.1)
+  eleventyConfig.setBrowserSyncConfig({
+    host: "0.0.0.0",
+    port: 8080,
+    open: false,
+    notify: false,
+    ui: false,
+    ghostMode: false,
+  });
+
   /**
    * Format exact INR numbers for display:
    *  >= 1 crore (1e7) → "13.75" + unit "Cr"

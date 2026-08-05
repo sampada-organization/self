@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "SELF",
   "scripts": {
-    "start": "npx eleventy --serve",
+    "start": "npx eleventy --serve --port=8080",
+    "start:lan": "HOST=0.0.0.0 npx eleventy --serve --port=8080",
     "build": "eleventy",
-    "dev": "npx netlify dev",
+    "dev": "npx netlify dev --no-open",
+    "dev:lan": "npx netlify dev --no-open -p 8888",
     "cms": "npx decap-server"
   },
+
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.12.1"
