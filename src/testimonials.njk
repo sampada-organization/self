@@ -18,9 +18,12 @@ permalink: /testimonials/
         <article class="testimonial-full-card">
           <div class="testimonial-full-card__quote">
             <i class="las la-quote-left" aria-hidden="true"></i>
-            <div class="testimonial-full-card__text">
+            <div class="testimonial-full-card__text" data-i18n-auto>
               {{ item.templateContent | safe }}
             </div>
+            {% if item.data.body_hi %}<template class="i18n-override" data-lang="hi">{{ item.data.body_hi }}</template>{% endif %}
+            {% if item.data.body_mr %}<template class="i18n-override" data-lang="mr">{{ item.data.body_mr }}</template>{% endif %}
+
           </div>
           <footer class="testimonial-full-card__meta">
             {% set photo = item.data.image if item.data.image else "/assets/img/self.png" %}

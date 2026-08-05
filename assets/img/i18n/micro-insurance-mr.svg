@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="56" viewBox="0 0 220 56" role="img" aria-label="सूक्ष्म विमा">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#067a3e"/>
+      <stop offset="100%" stop-color="#08944c"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="218" height="54" rx="12" fill="url(#g)" stroke="#e60000" stroke-width="2"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Quicksand, Poppins, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#ffffff">सूक्ष्म विमा</text>
+</svg>

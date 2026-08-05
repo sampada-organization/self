@@ -44,13 +44,25 @@
     <!-- Header Top Area -->
     <div class="header-top-area">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12">
-            <div class="social-icon header-top-contacts">
-              <a href="tel:18008911301"><i class="fa fa-phone"></i><span>1800 891 1301</span></a>
-              <a href="mailto:self@sampada.org"><i class="fa fa-envelope-o"></i><span>self@sampada.org</span></a>
-              <a href="https://www.linkedin.com/company/sampada-entrepreneurship-and-livelihoods-foundation/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-            </div>
+        <div class="header-top-bar">
+          <div class="header-top-contacts">
+            <a href="tel:18008911301" class="header-top-link">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>1800 891 1301</span>
+            </a>
+            <a href="mailto:self@sampada.org" class="header-top-link">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+              <span>self@sampada.org</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/sampada-entrepreneurship-and-livelihoods-foundation/?originalSubdomain=in"
+              class="header-top-link header-top-link--icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -59,18 +71,24 @@
     <div class="header-area">
       <div class="sticky-area">
         <div class="navigation site-nav">
-          <div class="row align-items-center no-gutters">
-            <div class="col-8 col-md-4 col-lg-3">
-              <div class="logo">
-                <a class="navbar-brand" href="/">
-                  <img src="/assets/img/logo.png" alt="SELF" width="200" height="56" decoding="async"/>
-                </a>
-              </div>
+          <div class="site-nav__row">
+            {# Mobile: toggler first in DOM for focus order; visual order logo left / toggle right via flex #}
+            <div class="site-nav__brand">
+              <a class="navbar-brand site-nav__logo" href="/">
+                <img src="/assets/img/logo.png" alt="SELF" width="180" height="50" decoding="async"/>
+              </a>
             </div>
-            <div class="col-4 col-md-8 col-lg-9">
-              <div class="main-menu">
-                <nav class="navbar navbar-expand-lg">
-                  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="site-nav__menu main-menu">
+              <nav class="navbar navbar-expand-lg site-nav__navbar">
+                  <button
+                    class="navbar-toggler site-nav__toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
@@ -78,51 +96,50 @@
                   <div class="collapse navbar-collapse justify-content-lg-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link" href="/about">Who We Are</a>
+                        <a class="nav-link" href="/about" data-i18n="who_we_are">Who We Are</a>
                         <ul class="sub-menu">
-                          <li><a href="/about">About US</a></li>
-                          <li><a href="/directors/">Directors</a></li>
-                          <li><a href="/managementteam/">Management Team</a></li>
+                          <li><a href="/about" data-i18n="about_us">About US</a></li>
+                          <li><a href="/directors/" data-i18n="directors">Directors</a></li>
+                          <li><a href="/managementteam/" data-i18n="management_team">Management Team</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/microfinance">What We Do</a>
+                        <a class="nav-link" href="/microfinance" data-i18n="what_we_do">What We Do</a>
                         <ul class="sub-menu">
-                          <li><a href="/microfinance">Micro Finance</a></li>
-                          <li><a href="/microenterprise">Micro Enterprise</a></li>
-                          <li><a href="/microinsurance">Micro Insurance</a></li>
-                          <li><a href="/testimonials/">Beneficiary Testimonials</a></li>
+                          <li><a href="/microfinance" data-i18n="micro_finance">Micro Finance</a></li>
+                          <li><a href="/microenterprise" data-i18n="micro_enterprise">Micro Enterprise</a></li>
+                          <li><a href="/microinsurance" data-i18n="micro_insurance">Micro Insurance</a></li>
+                          <li><a href="/testimonials/" data-i18n="beneficiary_testimonials">Beneficiary Testimonials</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/fieldSpeaks">SELF Speaks</a>
+                        <a class="nav-link" href="/fieldSpeaks" data-i18n="self_speaks">SELF Speaks</a>
                         <ul class="sub-menu">
-                          <li><a href="/employeeSpeaks">Employee Speak</a></li>
-                          <li><a href="/fieldSpeaks">Field Speaks</a></li>
+                          <li><a href="/employeeSpeaks" data-i18n="employee_speak">Employee Speak</a></li>
+                          <li><a href="/fieldSpeaks" data-i18n="field_speaks">Field Speaks</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/careers">Careers</a>
+                        <a class="nav-link" href="/careers" data-i18n="careers">Careers</a>
                         <ul class="sub-menu">
-                          <li><a href="/lifeAtSelf">Life at SELF</a></li>
-                          <li><a href="/careers">Current Openings</a></li>
+                          <li><a href="/lifeAtSelf" data-i18n="life_at_self">Life at SELF</a></li>
+                          <li><a href="/careers" data-i18n="current_openings">Current Openings</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/resources/">Resources</a>
+                        <a class="nav-link" href="/resources/" data-i18n="resources">Resources</a>
                         <ul class="sub-menu">
-                          <li><a href="/resources/">All Resources</a></li>
-                          <li><a href="/assets/files/cocV2.pdf" target="_blank" rel="noopener noreferrer">Code of Conduct</a></li>
-                          <li><a href="/assets/files/2024-25.pdf" target="_blank" rel="noopener noreferrer">Last Year Report</a></li>
+                          <li><a href="/resources/" data-i18n="all_resources">All Resources</a></li>
+                          <li><a href="/assets/files/cocV2.pdf" target="_blank" rel="noopener noreferrer" data-i18n="code_of_conduct">Code of Conduct</a></li>
+                          <li><a href="/assets/files/2024-25.pdf" target="_blank" rel="noopener noreferrer" data-i18n="last_year_report">Last Year Report</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#footer-link">Contact</a>
+                        <a class="nav-link" href="#footer-link" data-i18n="contact">Contact</a>
                       </li>
                     </ul>
                   </div>
-                </nav>
-              </div>
+              </nav>
             </div>
           </div>
         </div>
@@ -136,7 +153,7 @@
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="contact-info">
-                <h5>Head Office</h5>
+                <h5 data-i18n="head_office">Head Office</h5>
                 <p>
                   <i class="las la-map-marker"></i>
                   “Sampada”, Plot No 10,
@@ -154,41 +171,41 @@
               </div>
             </div>
             <div class="col-lg-3 col-md-6 com-sm-12">
-              <h5>Company</h5>
+              <h5 data-i18n="company">Company</h5>
               <ul>
                 <li>
-                  <a href="/about">About US</a>
-                  <a href="/employeespeaks">Employee Speaks</a>
-                  <a href="/careers">Career</a>
+                  <a href="/about" data-i18n="about_us">About US</a>
+                  <a href="/employeespeaks" data-i18n="employee_speaks">Employee Speaks</a>
+                  <a href="/careers" data-i18n="career">Career</a>
                 </li>
               </ul>
-              <h5>What We Do</h5>
+              <h5 data-i18n="what_we_do">What We Do</h5>
               <ul>
                 <li>
-                  <a href="/microfinance">Micro Finance</a>
-                  <a href="/microinsurance">Micro Insurance</a>
-                  <a href="/microenterprise">Micro Enterprise</a>
-                  <a href="/testimonials/">Beneficiary Testimonials</a>
+                  <a href="/microfinance" data-i18n="micro_finance">Micro Finance</a>
+                  <a href="/microinsurance" data-i18n="micro_insurance">Micro Insurance</a>
+                  <a href="/microenterprise" data-i18n="micro_enterprise">Micro Enterprise</a>
+                  <a href="/testimonials/" data-i18n="beneficiary_testimonials">Beneficiary Testimonials</a>
                 </li>
               </ul>
-              <h5>Useful Links</h5>
+              <h5 data-i18n="useful_links">Useful Links</h5>
               <ul>
                 <li>
-                  <a href="/managementteam/">Management Team</a>
-                  <a href="/directors/">Board Of Directors</a>
-                  <a href="/resources/">Resources</a>
+                  <a href="/managementteam/" data-i18n="management_team">Management Team</a>
+                  <a href="/directors/" data-i18n="board_of_directors">Board Of Directors</a>
+                  <a href="/resources/" data-i18n="resources">Resources</a>
                 </li>
               </ul>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="contact-form footer-contact">
-                <h3 class="footer-header">Get in Touch</h3>
+                <h3 class="footer-header" data-i18n="get_in_touch">Get in Touch</h3>
                 <form name="contact-form" id="contactForm" action="#" method="POST" data-netlify="true">
-                  <input type="text" name="name" id="name" required="" placeholder="User Name"/>
-                  <input type="email" name="email" id="email" required="" placeholder="Your E-mail"/>
-                  <input type="text" name="subject" id="subject" placeholder="Subject"/>
-                  <textarea name="message" id="message" cols="30" rows="10" required="" placeholder="How can we help you?"></textarea>
-                  <button type="submit" name="submit">Send Message</button>
+                  <input type="text" name="name" id="name" required="" placeholder="User Name" data-i18n="user_name"/>
+                  <input type="email" name="email" id="email" required="" placeholder="Your E-mail" data-i18n="your_email"/>
+                  <input type="text" name="subject" id="subject" placeholder="Subject" data-i18n="subject"/>
+                  <textarea name="message" id="message" cols="30" rows="10" required="" placeholder="How can we help you?" data-i18n="how_help"></textarea>
+                  <button type="submit" name="submit" data-i18n="send_message">Send Message</button>
                 </form>
               </div>
             </div>
@@ -222,6 +239,8 @@
     <script src="/assets/js/jquery.barfiller.js"></script>
     <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
+    <!-- EN / HI / MR language switcher + free auto-translate -->
+    <script src="/assets/js/i18n.js" defer></script>
     <script>
       if (window.netlifyIdentity) {
         window

@@ -4,8 +4,8 @@
     <div class="row">
       <div class="col-12 text-center">
         <div class="section-title">
-          <h6>Together we push the limits</h6>
-          <h2><b>Beneficiary Testimonials</b></h2>
+          <h6 data-i18n="together_limits">Together we push the limits</h6>
+          <h2><b data-i18n="beneficiary_testimonials">Beneficiary Testimonials</b></h2>
         </div>
       </div>
     </div>
@@ -15,9 +15,12 @@
         <blockquote class="testimonial-quote-card">
           <div class="testimonial-quote-card__body">
             <i class="las la-quote-left" aria-hidden="true"></i>
-            <div class="testimonial-quote-card__text">
+            <div class="testimonial-quote-card__text" data-i18n-auto>
               {{ item.templateContent | safe }}
             </div>
+            {% if item.data.body_hi %}<template class="i18n-override" data-lang="hi">{{ item.data.body_hi }}</template>{% endif %}
+            {% if item.data.body_mr %}<template class="i18n-override" data-lang="mr">{{ item.data.body_mr }}</template>{% endif %}
+
             <i class="las la-quote-right" aria-hidden="true"></i>
           </div>
         </blockquote>
@@ -31,7 +34,7 @@
     {% if collections.testimonials.length %}
     <div class="row">
       <div class="col-12 text-center testimonial-home-cta">
-        <a class="main-btn" href="/testimonials/">Read all beneficiary stories</a>
+        <a class="main-btn" href="/testimonials/" data-i18n="read_all_stories">Read all beneficiary stories</a>
       </div>
     </div>
     {% endif %}

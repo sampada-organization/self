@@ -162,7 +162,26 @@ collections:
         }
       - { label: "Display order", name: "order", widget: "number", value_type: "int", default: 10 }
       - { label: "Hide page output", name: "permalink", widget: "hidden", default: false }
-      - { label: "Testimonial quote", name: "body", widget: "markdown" }
+      - {
+          label: "Testimonial quote (primary / source language)",
+          name: "body",
+          widget: "markdown",
+          hint: "Write in any language. The site auto-translates for display when HI/MR overrides below are empty (free MyMemory API, cached in the browser).",
+        }
+      - {
+          label: "Quote in Hindi (optional override)",
+          name: "body_hi",
+          widget: "text",
+          required: false,
+          hint: "If set, used for Hindi instead of auto-translate.",
+        }
+      - {
+          label: "Quote in Marathi (optional override)",
+          name: "body_mr",
+          widget: "text",
+          required: false,
+          hint: "If set, used for Marathi instead of auto-translate.",
+        }
 
   # —— Existing editorial collections ——
   - name: "posts"
