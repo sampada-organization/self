@@ -1,6 +1,15 @@
 (function ($) {
 	"use strict";
 
+	// Always hide preloader — register first so later plugin errors can't leave a blank green screen.
+	// window "load" can hang on slow external scripts/images; use multiple fallbacks.
+	function hidePreloader() {
+		$(".site-preloader-wrap, .slide-preloader-wrap").stop(true, true).fadeOut(400);
+	}
+	$(hidePreloader); // DOM ready
+	$(window).on("load", hidePreloader);
+	setTimeout(hidePreloader, 2500);
+
 	// Mobile Menu
 
 	$(".navbar-toggler").on("click", function () {
@@ -30,33 +39,35 @@
 	}
 
 	//Home Page Slide
+	if ($.fn.owlCarousel && $(".homepage-slides").length) {
+		$(".homepage-slides").owlCarousel({
+			items: 1,
+			dots: false,
+			nav: true,
+			loop: true,
+			autoplay: true,
+			autoplayTimeout: 5000,
+			navText: ["<i class='la la-angle-left'></i>", "<i class='la la-angle-right'></i>"]
+		});
 
-	$('.homepage-slides').owlCarousel({
-		items: 1,
-		dots: false,
-		nav: true,
-		loop: true,
-		autoplay: true,
-		autoplayTimeout: 5000,
-		navText: ["<i class='la la-angle-left'></i>", "<i class='la la-angle-right'></i>"]
-	});
+		$(".homepage-slides").on("translate.owl.carousel", function () {
+			$(".single-slide-item h1").removeClass("animated fadeInUp").css("opacity", "1");
+			$(".single-slide-item h5").removeClass("animated fadeInDown").css("opacity", "1");
+		});
+
+		$(".homepage-slides").on("translated.owl.carousel", function () {
+			$(".single-slide-item h1").addClass("animated fadeInUp").css("opacity", "1");
+			$(".single-slide-item h5").addClass("animated fadeInDown").css("opacity", "1");
+		});
+	}
 
 
-	$(".homepage-slides").on("translate.owl.carousel", function () {
-		$(".single-slide-item h1").removeClass("animated fadeInUp").css("opacity", "1");
-		$(".single-slide-item h5").removeClass("animated fadeInDown").css("opacity", "1");
-	});
-
-	$(".homepage-slides").on("translated.owl.carousel", function () {
-		$(".single-slide-item h1").addClass("animated fadeInUp").css("opacity", "1");
-		$(".single-slide-item h5").addClass("animated fadeInDown").css("opacity", "1");
-	});
-
-
-	//jQuery Sticky Area 
-	$('.sticky-area').sticky({
-		topSpacing: 0,
-	});
+	//jQuery Sticky Area
+	if ($.fn.sticky && $(".sticky-area").length) {
+		$(".sticky-area").sticky({
+			topSpacing: 0,
+		});
+	}
 
 	//Progress Bar JS
 
@@ -219,10 +230,5 @@
 		$(".main-menu .navbar-nav .nav-link").removeClass("active");
 		$(this).addClass("active");
 	});
-
-	jQuery(window).on("load", function () {
-		jQuery(".site-preloader-wrap, .slide-preloader-wrap").fadeOut(1000);
-	});
-
 
 }(jQuery));

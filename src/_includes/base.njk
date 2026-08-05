@@ -8,7 +8,7 @@
       Sampada Entrepreneurship & Livelihoods Foundation
     </title>
     <!--Favicon-->
-    <link rel="icon" href="/assets/img/favicon.png" type="image/jpg"/>
+    <link rel="icon" href="/assets/img/logo.png" type="image/png"/>
     <!-- Bootstrap CSS -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Font Awesome CSS-->
@@ -31,12 +31,14 @@
     <link href="/assets/css/responsive.css" rel="stylesheet"/>
     <!-- Customized -->
     <link rel="stylesheet" href="/assets/css/custom.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (non-blocking) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
     <!-- jquery -->
     <script src="/assets/js/jquery-1.12.4.min.js"></script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Netlify Identity: async so a slow CDN cannot block first paint / window.load forever -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async></script>
   </head>
   <body>
     <!-- Pre Loader -->
@@ -140,12 +142,17 @@
                         </a>
                         <ul class="sub-menu">
                           <li>
-                            <a href="/assets/files/codeOfConduct.pdf" target="_blank">SELF-COC</a>
+                            <a href="/assets/files/cocV2.pdf" target="_blank">Code of Conduct</a>
                           </li>
                           {# <li>
-                            <a href="/reports" target="_blank">SELF-Annual Report</a>
+                            <a href="/reports" target="_blank">Annual Report</a>
                           </li> #}
-
+                          <li>
+                            <a href="/assets/files/2024-25.pdf" target="_blank">Last Year Report</a>
+                          </li>
+                          {# <li>
+                            <a href="/reports" target="_blank">Last Annual Report</a>
+                          </li> #}
                         </ul>
                       </li>
                       <li class="nav-item">
